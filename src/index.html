@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Documentation Page</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+  
+  <title>Technical Documentation Page for Proofs by Natual Deduction</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+  
+</head>
+
+<body>
+ 
+  <nav id="navbar">
+    
+    <header id="navheader">PND Documentation</header>
+    <ul>
+    <li><a href="#The_Basic_Method" class="nav-link">The Basic Method</a></li>
+    <li><a href="#Rules_of_Replacement_or_Substitution" class="nav-link">Rules of Replacement or Substitution</a></li>
+    <li><a href="#Rules_of_Inference" class="nav-link">Rules of Inference</a></li>
+    <li><a href="#Strategies_of_Formal_Proof" class="nav-link">Strategies of Formal Proof</a></li>
+    <li><a href="#Examples" class="nav-link">Examples</a></li>
+    </ul>    
+  </nav>
+  
+  <main id="main-doc">
+    
+    <section class="main-section" id="The_Basic_Method">
+      
+      <header>The Basic Method
+      </header>
+      
+      <p>A proof by natural deduction (PND) requires a listing and numbering of premises as well as a statement of the conclusion to be derived. Usually, this conclusion is preceded by the symbols "/&#8756".
+      </p>
+      
+      <p>Then, the proof itself follows by means of a series of numbered steps each of which is derived by referring to a previous step or previous steps as well as to a rule of substitution or a rule of inference. This process is reiterated until the conclusion is derived in a like manner.
+      </p>
+      
+    </section>
+    
+    <section class="main-section" id="Rules_of_Replacement_or_Substitution">
+      
+      <header>Rules of Replacement or Substitution
+      </header>
+      
+      <p>These rules are logically stronger than the rules of inference formulated below. Since all rules of substitution entail equivalencies, the "whole-step" condition of rules of inference does not apply. This means, for instance, that if "p > q" appears as either a step or part of a step, "~q > ~p" can be substituted for it according to transposition.
+      </p>
+      
+      <p>
+        <ul>
+          <li><strong>Commutativity (Comm.)</strong>: (p & q) :: (q & p); (p v q) :: (q v p)</li>
+          <li><strong>Association (Assoc.)</strong>: (p & (q & r)) :: ((p & q) & r); (p v (q v r)) :: ((p v q) v r)</li>
+          <li><strong>Tautology (Taut.)</strong>: (p & p) :: p; (p v p) :: p</li>
+          <li><strong>Distribution (Dist.)</strong>: (p & (q v r)) :: ((p & q) v (p & r)); (p v (q & r)) :: ((p v q) & (p v r))</li>
+          <li><strong>Double Negation (DN)</strong>: p :: ~~p</li>
+          <li><strong>Transposition (Trans.)</strong>: (p > q) :: (~q > ~p)</li>
+          <li><strong>Implication (Imp.)</strong>: (p > q) :: (~p v q)</li>
+          <li><strong>DeMorgan's Rule (DM)</strong>: ~(p & q) :: (~p v ~q); ~(p v q) :: (~p & ~q)</li>
+          <li><strong>Equivalence (Equiv.)</strong>: (p <=> q) :: ((p > q) & (q > p))</li>
+          <li><strong>Exportation (Exp.)</strong>: ((p & q) > r) :: (p > (q > r))</li>
+        </ul>
+      </p>    
+      
+    </section>
+    
+    <section class="main-section" id="Rules_of_Inference">
+      
+      <header>Rules of Inference
+      </header>
+      
+      <p>Rules of inference may only be applied to entire steps of a proof. Thus if using Modus Ponens, nothing but "p > q" and "p" must exhaustively comprise two entire, separate steps. If either "p > q" or "p" or both form only parts of entire steps of a proof, they cannot be used in conjunction with Modus Ponens.
+      </p>
+      
+      <p>
+        <ul>
+          <li><strong>Modus Ponens (MP)</strong>: From "p > q" and "p", infer "q"</li>
+          <li><strong>Modus Tollens (MT)</strong>: From "p > q" and "~q", infer "~p"</li>
+          <li><strong>Disjunctive Syllogism (DS)</strong>: From "p v q" and "~p", infer "q"</li>
+          <li><strong>Hypothetical Syllogism (HS)</strong>: From "p > q" and "q > r", infer "p > r"</li>
+          <li><strong>Conjunction (Conj.)</strong>: From "p" and "q", infer "p & q"</li>
+          <li><strong>Simplification (Simp.)</strong>: From "p & q", infer p</li>
+          <li><strong>Constructive Dilemma (CD)</strong>: From "p > q", "r > s" and "p v r", infer "q v s"</li>
+          <li><strong>Introduction (Intro.)**</strong>: From "p", infer "p v q"</li>
+        </ul>
+      </p>
+      
+    <p><strong>**</strong>The Introduction rule seems, on the face of it, illicit. Nevertheless it represents a valid inference if one considers that a disjunction as a whole is true just in case one of its disjuncts is true. Thus, if "p" is true, then "p v q" will also be true regardless of the truth of "q".
+      </p>
+      
+    </section>
+    
+    <section class="main-section" id="Strategies_of_Formal_Proof">
+      
+      <header>Strategies of Formal Proof
+      </header>
+      
+      <p>Direct Proof (DP):
+        
+        <code>
+          <ol>
+            <li>P1</li>
+            <li>P2 / &#8756 C</li>
+            <li>deduced WFF + line number + deductive rule</li>
+            <li>...</li>
+            <li type="a" value="14">QED: line number + deductive rule</li>
+          </ol>
+        </code>
+      </p>
+      
+      <p>Indirect Proof (IP):
+        <code>
+          <ol>
+            <li>P1</li>
+            <li>P2 / &#8756 C</li>
+            <li>~C</li>
+            <li>deduced WFF + line number + deductive rule</li>
+            <li>...</li>
+            <li type="a" value="14">F & ~F + line number + deductive rule</li>
+            <li type="a" value="14">+ 1.  QED: lines 3 to n + deductive rule</li>
+          </ol>
+        </code>
+      </p>
+      
+      <p>Conditional Proof (CP):
+        <code>
+          <ol>
+            <li>P1</li>
+            <li>P2 / &#8756 F -> G</li>
+            <li>F (provisionally assumed) / &#8756 G</li>
+            <li>...</li>
+            <li>deduced WFF + line number + deductive rule</li>
+            <li type="a" value="14">G + line number + deductive rule</li>
+            <li type="a" value="14">+ 1. F -> G (lines 3 to n, Conditional Proof)</li>
+          </ol>
+        </code>
+      </p>
+            
+    </section>
+    
+    <section class="main-section" id="Examples">
+      
+      <header>Examples
+      </header>
+      
+      <p>Direct Proof:
+        <code>
+          <ol>
+            <li>(B v C) -> ~A</li>
+            <li>B / &#8756 ~A</li>
+            <li>B v C (from 2, Intro.)</li>
+            <li>~A (from 1 and 3, MP)</li>
+          </ol>
+        </code>
+      </p>
+      
+      <p>Indirect Proof:
+        <code>
+          <ol>
+            <li>(A v B) -> ~A /&#8756 ~A</li>
+            <li>~~A (assumption indirect proof)</li>
+            <li>~(A v B) (from 1 and 2, MT)</li>
+            <li>~A & ~B (from 3, DM)</li>
+            <li>~A (from 4, Simp.)</li>
+            <li>A (from 2, DN)</li>
+            <li>A & ~A (from 5 and 6, Conj.)</li>
+            <li>~A (lines 2 to 7, IP)</li>
+          </ol>
+        </code>
+      </p>
+      
+       <p>Conditional Proof:
+        <code>
+          <ol>
+            <li>A -> (B v C)</li>
+            <li>~C / &#8756 (A -> B)</li>
+            <li>A (assumption indirect proof)</li>
+            <li>B v C (from 1 and 3, MP)</li>
+            <li>B (from 2 and 4, DS)</li>
+            <li>A -> B (from 3 to 5, CP)</li>
+          </ol>
+        </code>
+      </p>
+            
+    </section>
+    
+    
+  </main>
+  
+  <footer id="foot">
+    <span>&#169; 2021, Sean Leichtle</span>
+  </footer>
+
+</body>
